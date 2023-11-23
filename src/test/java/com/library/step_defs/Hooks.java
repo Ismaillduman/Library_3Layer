@@ -23,10 +23,12 @@ public class Hooks {
     @After("@ui")
     public void tearDown(Scenario scenario){
         if(scenario.isFailed()){
-            final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png","screenshot");
-        }
+            final byte[] screenshotPNG=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshotPNG,"image/png","screenshot.png");
 
+            final byte[] screenshotGIF=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshotGIF,"image/gif","screenshot.gif");
+        }
         Driver.closeDriver();
 
     }
