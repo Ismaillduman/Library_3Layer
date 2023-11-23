@@ -1,4 +1,6 @@
-package com.cydeo.utility;
+package com.library.utility;
+
+import com.library.utility.ConfigurationReader;
 
 import java.sql.*;
 import java.util.ArrayList;
